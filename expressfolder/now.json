@@ -1,0 +1,114 @@
+{
+
+"version": 2,
+
+"builds": [
+
+{
+
+"src": "app.js",
+
+"use": "@now/node-server"
+
+}
+
+],
+
+"routes": [
+
+{
+
+"src": ".*",
+
+"methods": [
+
+"GET",
+
+"POST",
+
+"DELETE",
+
+"PUT",
+
+"OPTIONS"
+
+],
+
+"headers": {
+
+"Access-Control-Allow-Origin": "*",
+
+"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+
+"Access-Control-Allow-Credentials": "true"
+
+},
+
+"dest": "app.js",
+
+"continue": true
+
+},
+
+{
+
+"src": "/places/(?<id>[^/]+)",
+
+"dest": "/app.js/?id=$id",
+
+"methods": [
+
+"DELETE"
+
+]
+
+},
+
+{
+
+"src": "/places/(?<id>[^/]+)",
+
+"dest": "/app.js/?id=$id",
+
+"methods": [
+
+"PUT"
+
+]
+
+},
+
+{
+
+"src": "/places",
+
+"dest": "/app.js",
+
+"methods": [
+
+"GET"
+
+]
+
+},
+
+{
+
+"src": "/places",
+
+"dest": "/app.js",
+
+"methods": [
+
+"POST"
+
+]
+
+}
+
+
+
+]
+
+}
+
