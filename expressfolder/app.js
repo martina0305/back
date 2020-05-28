@@ -5,10 +5,10 @@ var methodOverride = require('method-override');
 var http = require('http');
 var server = http.createServer(app);
 var mongoose = require('mongoose');
-var cors = require('cors');
+
 
 //conexion a la base de datos
-mongoose.connect('mongodb+srv://marta:<twisted9320*>@cluster0-i4afa.mongodb.net/photographymap?retryWrites=true&w=majority', function(err, res){
+mongoose.connect('mongodb+srv://marta:twisted9320*@cluster0-i4afa.mongodb.net/photographymap?retryWrites=true&w=majority', function(err, res){
 
   if (err) throw err;
   console.log('conectado a mi base');
@@ -19,7 +19,10 @@ mongoose.connect('mongodb+srv://marta:<twisted9320*>@cluster0-i4afa.mongodb.net/
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
-app.use(cors());
+var cors = require('cors')
+
+
+app.use(cors())
 
 routes = require('./routes/places')(app);
 

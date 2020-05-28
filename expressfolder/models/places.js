@@ -6,8 +6,10 @@ var placesSchema = new Schema({
     lat: {type: String},
     lng: {type: String},
     name: {type: String},
-    description: {type: String}
+    img: {type: String},
+    description: {type: String},
+    type: {type: String}
 });
 
-module.exports = mongoose.model('Places', placesSchema, 'places');
+module.exports = mongoose.model('Place', placesSchema, 'places');
 
